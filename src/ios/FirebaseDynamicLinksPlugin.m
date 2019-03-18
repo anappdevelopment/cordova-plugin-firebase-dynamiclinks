@@ -30,6 +30,9 @@
 - (void)postDynamicLink:(FIRDynamicLink*) dynamicLink {
     NSMutableDictionary *data = [NSMutableDictionary dictionary];
     NSString* absoluteUrl = dynamicLink.url.absoluteString;
+    if (!absoluteUrl) {
+        return;
+    }
     NSString* minimumAppVersion = dynamicLink.minimumAppVersion;
     BOOL weakConfidence = (dynamicLink.matchType == FIRDLMatchTypeWeak);
 
